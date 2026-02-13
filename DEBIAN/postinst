@@ -9,6 +9,9 @@ fi
 # Apply resolv.conf
 cp /etc/resolv.conf /etc/resolv.conf
 
+# Remove old /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+rm  /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+
 # Optional: make resolv.conf immutable (uncomment if needed)
 # chattr +i /etc/resolv.conf || true
 
