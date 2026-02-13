@@ -17,23 +17,6 @@ else
     echo "Warning: dnscrypt-sirros.toml not found, skipping."
 fi
 
-## Comment out the User line in the systemd unit
-UNIT_FILE="/etc/systemd/system/dnscrypt-proxy.service"
-if [ -f "$UNIT_FILE" ]; then
-    sed -i 's/^[[:space:]]*User=.*/#&/' "$UNIT_FILE"
-fi
-
-# Stop systemd-resolved and mask its sockets to free port 53
-if systemctl list-unit-files | grep -q systemd-resolved; then
-    systemctl stop systemd-resolved || true
-    systemctl stop systemd-resolved-varlink.socket || true
-    systemctl stop systemd-resolved-monitor.socket || true
-
-    systemctl disable systemd-resolved || true
-    systemctl mask systemd-resolved || true
-    systemctl mask systemd-resolved-varlink.socket || true
-    systemctl mask systemd-resolved-monitor.socket || true
-
 ## Reload systemd to pick up changes
 systemctl daemon-reexec
 
