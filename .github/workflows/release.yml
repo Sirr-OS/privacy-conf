@@ -28,6 +28,7 @@ jobs:
 
       - name: Clean package tree
         run: |
+          rm -f README.md
           rm -rf .git
           rm -rf .github
 
