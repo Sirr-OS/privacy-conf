@@ -17,6 +17,11 @@ else
     echo "Warning: dnscrypt-sirros.toml not found, skipping."
 fi
 
+## Fix permissions and ownership of dnscrypt conf
+chown root:root /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+chmod 644 /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+
+
 ## Reload systemd to pick up changes
 systemctl daemon-reexec
 
