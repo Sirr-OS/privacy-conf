@@ -5,7 +5,7 @@ set -e
 cp /etc/resolv.conf /etc/resolv.conf.backup || true
 
 # Optionally overwrite dnscrypt-proxy settings
-cp /etc/privacy-conf/dnscrypt-proxy.toml /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+cp /etc/privacy-conf/dnscrypt-sirros.toml /etc/dnscrypt-proxy/dnscrypt-proxy.toml
 
 # Ensure NetworkManager sees the new config
 if systemctl is-active --quiet NetworkManager; then
