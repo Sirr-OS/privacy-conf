@@ -1,0 +1,10 @@
+Package: privacy-conf
+Version: 1.0.0
+Section: net
+Priority: optional
+Architecture: arm64
+Maintainer: Commander-Z3R0 <commander.Z3R0@proton.me>
+Depends: network-manager, dnscrypt-proxy
+Description: Privacy and DNS hardening configuration for Sirr OS
+ This package provides default configurations for dnscrypt-proxy, 
+ NetworkManager, and resolv.conf to enforce localhost DNS usage.

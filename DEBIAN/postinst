@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+# Ensure NetworkManager sees the new config
+if systemctl is-active --quiet NetworkManager; then
+    systemctl restart NetworkManager
+fi
+
+# Apply resolv.conf
+cp /etc/resolv.conf /etc/resolv.conf
+
+# Optional: make resolv.conf immutable (uncomment if needed)
+# chattr +i /etc/resolv.conf || true
+
+echo "privacy-conf installation complete: DNS is forced to localhost (127.0.0.1)."
