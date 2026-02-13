@@ -4,15 +4,12 @@ set -e
 # Backup resolv.conf
 cp /etc/resolv.conf /etc/resolv.conf.backup || true
 
-# Optionally overwrite dnscrypt-proxy settings
-cp /etc/privacy-conf/dnscrypt-sirros.toml /etc/dnscrypt-proxy/dnscrypt-proxy.toml
+# Copy privacy-conf dnscrypt-proxy settings from package location
+cp /etc/dnscrypt-proxy/dnscrypt-sirros.toml /etc/dnscrypt-proxy/dnscrypt-proxy.toml
 
-# Ensure NetworkManager sees the new config
+# Restart NetworkManager
 if systemctl is-active --quiet NetworkManager; then
     systemctl restart NetworkManager
 fi
-
-# Optional: make resolv.conf immutable (uncomment if needed)
-# chattr +i /etc/resolv.conf || true
 
 echo "privacy-conf installation complete: DNS is forced to localhost (127.0.0.1)."
