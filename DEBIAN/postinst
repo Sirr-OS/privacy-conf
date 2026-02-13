@@ -21,18 +21,6 @@ fi
 chown root:root /etc/dnscrypt-proxy/dnscrypt-proxy.toml
 chmod 644 /etc/dnscrypt-proxy/dnscrypt-proxy.toml
 
-
-## Reload systemd to pick up changes
-systemctl daemon-reexec
-
-## Restart NetworkManager to apply configs
-if systemctl is-active --quiet NetworkManager; then
-    systemctl restart NetworkManager
-fi
-
-## Restart dnscrypt-proxy to apply changes
-systemctl restart dnscrypt-proxy
-
 ## Optional: make resolv.conf immutable
 # chattr +i /etc/resolv.conf || true
 
