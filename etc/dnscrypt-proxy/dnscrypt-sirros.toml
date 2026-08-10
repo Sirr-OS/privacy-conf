@@ -260,7 +260,7 @@ cert_refresh_delay = 240
 ## not be sent there. If you're using DNSCrypt or Anonymized DNS and your
 ## lists are up to date, these resolvers will not even be used.
 
-bootstrap_resolvers = ['9.9.9.11:53', '8.8.8.8:53']
+bootstrap_resolvers = ['9.9.9.11:53', '149.112.112.11:53']
 
 
 ## When internal DNS resolution is required, for example to retrieve
@@ -489,12 +489,12 @@ cache_neg_max_ttl = 600
 ## Path to the query log file (absolute, or relative to the same directory as the config file)
 ## Can be set to /dev/stdout in order to log to the standard output.
 
- file = '/var/log/dnscrypt-proxy/query.log'
+#file = '/var/log/dnscrypt-proxy/query.log'
 
 
 ## Query log format (currently supported: tsv and ltsv)
 
-format = 'tsv'
+#format = 'tsv'
 
 
 ## Do not log these query types, to reduce verbosity. Keep empty to log everything.
